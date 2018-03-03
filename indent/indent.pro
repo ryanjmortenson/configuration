@@ -26,5 +26,5 @@
 -sc
 -lc80
 -fca
--cn
+-c2
 -ts2
