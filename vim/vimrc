@@ -36,8 +36,10 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 retab
-
 set number
+
+command! -nargs=? Filter let @a='' | execute 'g/<args>/y A' | vnew | setlocal bt=nofile | put! a
+nmap <C-\>* :Filter <C-R>=expand("<cword>")<CR><CR>
 
 "CSCOPE settings for vim           
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -239,7 +241,8 @@ command Clean execute "!scons -j8 -c"
 command Scope execute "!cscope -R -b"
 colorscheme ayu 
 set nomousehide
-highlight Cursor guibg=#B8CC52 
+highlight Cursor guibg=#ff007f
 set laststatus=2
 set hlsearch
 set incsearch
+set cursorline
